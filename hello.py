@@ -8,7 +8,7 @@ def say_hello():
 
 @app.route('/about')
 def about():
-	return '<p>This application is running on the Flask web framework. To learn more about this, go to</p><a href="https://flask.palletsprojects.com/en/stable/">Flask</a>'
+	return '<p>This application is running on the Flask web framework. To learn more about this, go to</p><a href="https://flask.palletsprojects.com/en/stable/">Flask</a>. To learn about python go to <a href="https://python.org"> Python</a>'
 
 def contact():
 	return '<p>c23502209@mytudublin.ie</p>'
