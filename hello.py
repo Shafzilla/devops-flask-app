@@ -12,3 +12,6 @@ def about():
 
 def contact():
 	return '<p>c23502209@mytudublin.ie</p>'
+
+def form():
+	return '<p>fill the form</p>'
