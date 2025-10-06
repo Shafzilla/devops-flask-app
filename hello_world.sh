@@ -21,6 +21,10 @@ echo "installing flask."
 
 pip install flask
 
+export FLASK_APP=hello.py
+
+nohup flask run --host=0.0.0.0 --port=5000 &
+
 echo "script complete."
 
 
