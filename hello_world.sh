@@ -1,30 +1,31 @@
 #!/bin/bash
 
-echo "Updating and upgrading system."
-
-sudo apt update
-
+echo "Updating system."
+sudo apt update -y
 sudo apt upgrade -y
 
-echo "System updates and upgrades completed successfully."
 
-echo "installing  python package manager."
+cd /home/vagrant
+echo "Working directory set to $(pwd)"
 
-sudo apt install -y nano vim python-is-python3 \
-          python3-venv python3-pip
+echo "Installing required packages."
 
-python -m venv .my_venv
-
-source .my_venv/bin/activate
-
-echo "installing flask."
-
-pip install flask
-
-export FLASK_APP=hello.py
-
-nohup flask run --host=0.0.0.0 --port=5000 &
-
-echo "script complete."
+sudo apt install -y nano vim python-is-python3 python3-venv python3-pip
 
 
+python -m venv .venv
+echo "Virtual environment created."
+
+
+
+echo "Installing flask into virtual environment."
+
+/home/vagrant/.venv/bin/pip install flask
+
+
+
+echo "Starting Flask app"
+
+/home/vagrant/.venv/bin/python -m flask --app /vagrant/hello.py run --host=0.0.0.0 --port=5000 > /home/vagrant/flask.log 2>&1 &
+
+echo "Script complete. Flask server is running ."
